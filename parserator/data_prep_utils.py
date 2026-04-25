@@ -17,37 +17,23 @@ class TrainingData:
             self.parent_tag = module.PARENT_LABEL
 
     def append(self, labeled_sequence):
-        self.xml.append(self._sequence_to_xml(labeled_sequence))
+        pass
 
     def extend(self, labeled_sequences):
-        for labeled_sequence in labeled_sequences:
-            self.append(labeled_sequence)
+        pass
 
     def write(self, outfile):
-        etree.ElementTree(self.xml).write(outfile, pretty_print=True)
+        pass
 
     def _sequence_to_xml(self, labeled_sequence):
-        sequence_xml = etree.Element(self.parent_tag)
-
-        for token, label in labeled_sequence:
-            component_xml = etree.Element(label)
-            component_xml.text = token
-            component_xml.tail = " "
-            sequence_xml.append(component_xml)
-
-        sequence_xml[-1].tail = ""
-
-        return sequence_xml
+        pass
 
     def _xml_to_sequence(self, sequence_xml):
-        return tuple((element.text, element.tag) for element in sequence_xml)
+        pass
 
     # clears formatting for an xml collection
     def _strip_formatting(self, xml):
-        xml.text = None
-        for element in xml:
-            element.text = None
-            element.tail = None
+        pass
 
     def __iter__(self):
         for sequence_xml in self.xml:
@@ -57,7 +43,4 @@ class TrainingData:
 
 # writes a list of strings to a file
 def list2file(string_list, filepath):
-    with open(filepath, "w") as csvfile:
-        writer = csv.writer(csvfile, doublequote=True, quoting=csv.QUOTE_MINIMAL)
-        for string in string_list:
-            writer.writerow([string])
+    pass
